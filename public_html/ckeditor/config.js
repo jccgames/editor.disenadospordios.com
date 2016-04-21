@@ -5,7 +5,7 @@
 
 CKEDITOR.editorConfig = function( config ) {
 	config.removeButtons = 'Save,NewPage,Preview,Print,Templates,PasteFromWord,Paste,Find,Replace,Form,Checkbox,Radio,TextField,Textarea,Select,Button,ImageButton,HiddenField,Outdent,Indent,CreateDiv,JustifyLeft,JustifyCenter,JustifyRight,JustifyBlock,BidiLtr,BidiRtl,Anchor,Flash,Table,SpecialChar,Iframe,Styles,Format,Font,FontSize,ShowBlocks,Maximize';
-
+	config.height = 2000;
 	config.language = 'es';
 	config.toolbarCanCollapse = true;
 
