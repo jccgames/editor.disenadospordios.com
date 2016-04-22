@@ -1,0 +1,8 @@
+<div class='container'>
+	<h1>Articulos</h1>
+	<div ng-controller='articlesFeedController'>
+		<ul ng-repeat='article in articles'>
+			<li class='admin-feed'><a ng-href="/editor?id={{article.id}}"><b>{{article.title}}</b></a> | <i>{{article.author}}</i> | {{article.publishdate}}</li>
+		</ul>
+	</div>
+</div>

@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html ng-app='blog'>
+<html ng-app='editor'>
 <head>
 	<title>Diseñados por Dios</title>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="/css/admin.css">
 	<link rel="stylesheet" type="text/css" href="http://disenadospordios.com/css/main.css">
 	<link rel="stylesheet" type="text/css" href="http://disenadospordios.com/css/icon.css">
 	<!-- Google Font -->
@@ -34,7 +35,7 @@
 		<h1>Articulos</h1>
 		<div ng-controller='articlesFeedController'>
 			<ul ng-repeat='article in articles'>
-				<li>{{article.title}} - {{article.author}}</li>
+				<li class='admin-feed'><a ng-href="/blog/{{article.id}}"><b>{{article.title}}</b></a> | <i>{{article.author}}</i> | {{article.publishdate}}</li>
 			</ul>
 		</div>
 	</div>

@@ -14,19 +14,22 @@ if (!$conn) {
 
 
 //We are connected
-
-$sql = "SELECT id, title, author FROM articles ORDER BY id DESC LIMIT 3";
+$sql = "SELECT id, title, author, publishdate FROM articles ORDER BY id DESC LIMIT 3";
 $result = mysqli_query($conn, $sql);
 $data = array();
 if (mysqli_num_rows($result) > 0) {
     // output data of each row
     while($row = mysqli_fetch_assoc($result)) {
+    	setlocale(LC_TIME, 'es_ES', 'Spanish_Spain', 'Spanish'); 
+    	$date=date_create($row['publishdate']);
+    	$row['publishdate'] = strftime("%A %d de %B del %Y", $date->getTimestamp());
     	$data[]=$row;
     }
 }
 mysqli_close($conn);
 
 echo html_entity_decode(stripcslashes(json_encode($data)));
+
 
 
 ?>
