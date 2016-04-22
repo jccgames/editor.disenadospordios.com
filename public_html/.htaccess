@@ -9,13 +9,7 @@ RewriteEngine on
 <IfModule mod_rewrite.c>  
 
 #FOR blogs.php?title=un_gran_poder
-RewriteRule ^blog/([^/]+) templates/editor/index.html?id=$1 [NC,L]
-
-#FOR search.php?type=tag&term=1
-RewriteRule ^buscar/([^/]+)/([^/]+) search.php?type=$1&term=$2 [NC,L]
-
-#FOR populares
-RewriteRule ^populares$ populares.php? [NC,L]
+RewriteRule ^blog/(.*) 		templates/editor/index.html?id=$1 [NC,L]
 
 </IfModule>
 
