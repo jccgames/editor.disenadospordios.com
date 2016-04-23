@@ -13,11 +13,12 @@
 	<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
 	<!--CKEditor-->
 	<script type="text/javascript" src='/ckeditor/ckeditor.js'></script>
+	<script type="text/javascript" src='/app/encoder.js'></script>
 	<!-- Angular.js-->
 	<script src='https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js'></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-sanitize.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-animate.js"></script>
-	<script type="text/javascript" src='app/angular.js'></script>
+	<script type="text/javascript" src='/app/angular.js'></script>
 </head>
 
 <body>
@@ -31,14 +32,28 @@
 		</div>
 	</nav>
 
-	<div class='container'>
+	<div class='container' ng-controller='articleWriteController'>
+		<h1>Titulo: <input type="text" ng-model='article.title'></h1>
+		<ul class='inline'>
+			<li>Id: {{article.id}}</li>
+			<li>Escritor: <input type="text" ng-model='article.author'></li>
+			<li>Foto: <input type="text" ng-model='article.picture'></li>
+			<li>Url: /blog/<input type="text" ng-model='article.url'></li>
+			<li>Likes: {{article.likes}}</li>
+			<li>Vistas: {{article.views}}</li>
+			<li>{{article.draft}}: {{article.publishdate}}</li>
+			<li>{{article.publish}}</li>
+			<li><button ng-click='saveDraft()'>Guardar como borrador</button></li>
+			<li><button ng-click='savePublish()'>Guardar y publicar</button></li>
+		</ul>
+
 		<textarea name='editor1' id='editor1' rows='10' cols='80'>
 		</textarea>
 		<script type="text/javascript">
 			CKEDITOR.replace('editor1');
-			CKEDITOR.instances.editor1.setData("<p>My Text</p>");
 		</script>
 	</div>
+
 </body>
 
 </html>
