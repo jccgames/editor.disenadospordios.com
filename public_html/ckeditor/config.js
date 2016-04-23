@@ -4,7 +4,7 @@
  */
 
 CKEDITOR.editorConfig = function( config ) {
-	config.height = 2000;
+	config.height = 300;
 	config.language = 'es';
 	config.toolbarCanCollapse = true;
 	config.toolbarGroups = [
