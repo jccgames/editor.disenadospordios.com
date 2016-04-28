@@ -2,9 +2,18 @@ var app = angular.module('editor',['ngAnimate','ngSanitize']);
 
 
 app.controller('articlesFeedController',function($scope, $http){
+	$scope.loading = 1;
 	$http.get('/templates/feed/get.php').success(function(data){
 		$scope.articles=data;
+		$scope.loading = 0;
 	});
+
+	$scope.newArticle=function(){
+		$http.get('/templates/feed/new.php').success(function(data){
+			alert(data);
+			window.location = '/'
+		})
+	};
 });
 
 app.controller('articleWriteController',function($scope, $http, $location){
@@ -12,30 +21,37 @@ app.controller('articleWriteController',function($scope, $http, $location){
 	$scope.getID=pathname.replace('/blog/','');
 	$http.get('/templates/editor/get.php?id='+$scope.getID).success(function(data){
 		$scope.article=data;
-		if ($scope.article['publish'] == 0) 
-		{$scope.article['draft']='Ultima modificacion'; $scope.article['publish']='El articulo es un borrador.';} else
-		{$scope.article['draft']='Publicado el'; $scope.article['publish']='El articulo ya esta publicado.';}
 		CKEDITOR.instances.editor1.setData($scope.article['content']);
 	});
 
 
-	$scope.saveDraft=function(){
-		$scope.encoded = CKEDITOR.instances.editor1.getData().replace(/&/g,"%26");
-		var sData = 'id='+$scope.article['id']+
-			'&title='+$scope.article['title']+
-			'&picture='+$scope.article['picture']+
-			'&url='+$scope.article['url']+
-			'&author='+$scope.article['author']+
-			'&content='+$scope.encoded+
-			'&publish='+'0';
+	$scope.save=function(){
+		$scope.article['content'] = CKEDITOR.instances.editor1.getData();
+		var data = $.param({
+            id: $scope.article['id'],
+            title: $scope.article['title'],
+            author: $scope.article['author'],
+            content: $scope.article['content'],
+            picture: $scope.article['picture'],
+            url: $scope.article['url']
+        });
 
-		$http.get('/templates/editor/post.php?act=draft&'+sData).success(function(data){
-			alert(sData);
+        var config = {
+	        headers : {
+	            'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+	        }
+	    };
+
+		$http.post('/templates/editor/save.php',data, config).success(function(data, status, headers, config){
 			alert(data);
 		});
 	};
 
 	$scope.savePublish=function(){
+
+	};
+
+	$scope.saveDraft=function(){
 
 	};
 });

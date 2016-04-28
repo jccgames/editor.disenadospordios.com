@@ -1,0 +1,173 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: 'Open Sans', sans-serif;
+}
+
+body {
+	background: rgb(240,240,240);
+}
+
+nav{
+	padding-top: 66px;
+	max-width: 1000px;
+	margin: auto;
+}
+small{
+	color: gray;
+	font-size: 0.7em;
+	font-weight: 100;
+}
+a{
+	text-decoration: none;
+	color: #3bc492;
+}
+
+
+/*Ng Animate*/
+.fade{
+	transition: all linear 0.5s;
+	opacity: 1;
+}
+
+.ng-hide{
+	opacity: 0;
+}
+
+
+
+.icon-back{
+	position: relative;
+}
+
+.icon-back .icon-DxD{
+	position: absolute;
+	font-size: 4em;
+	color: rgba(60,60,60,0.5);
+	left: 50%;
+	transform:translateX(-50%);
+	z-index: -100;
+	top: -20px;
+}
+
+.header{
+	text-align: center;
+	padding-bottom: 35px;
+}
+
+.cover{
+	width: 100%;
+	height: 500px;
+	overflow: hidden;
+	position: relative;
+}
+.slider-image{
+	width: 100%;
+	height: auto;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+}
+.slider-description{
+	color: white;
+	width: 90%;
+	height: 30%;
+	padding-left: 5%;
+	padding-right: 5%;
+	padding-top: 15%;
+	position: absolute;
+	bottom: 0%;
+	background: rgba(0,0,0,0.3);
+	background: -webkit-linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.35), rgba(0,0,0,1));/* Safari */
+  	background: -o-linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.35), rgba(0,0,0,1)); /* Opera 11.6 to 12.0 */
+  	background: -moz-linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.35), rgba(0,0,0,1));; /* Firefox 3.6 to 15 */
+  	background: linear-gradient(rgba(0,0,0,0), rgba(0,0,0,0.35), rgba(0,0,0,1)); /* Standard syntax */
+	text-align: center;
+	text-transform: capitalize;
+}
+.slider-description h3{
+	padding-bottom: 6px;
+}
+
+.slider-controller{
+	text-align: center;
+	width: 100%;
+	position: relative;
+	bottom: 30px;
+	left: 0;
+}
+
+.slider-btn{
+	text-decoration: none;
+	color: black;
+	width: 10px;
+	height: 10px;
+	padding: 2px;
+	margin: 5px;
+	border-radius: 100%;
+	display: inline-block;
+	box-shadow: 2px -3px 2px rgba(0,0,0,0.8);
+	background: gray; /* For browsers that do not support gradients */
+ 	background: -webkit-radial-gradient(circle, rgba(250,250,250,0.21), rgba(250,250,250,0.35), rgba(250,250,250,1));/* Safari */
+  	background: -o-radial-gradient(circle, rgba(250,250,250,0.21), rgba(250,250,250,0.35), rgba(250,250,250,1)); /* Opera 11.6 to 12.0 */
+  	background: -moz-radial-gradient(circle, rgba(250,250,250,0.21), rgba(250,250,250,0.35), rgba(250,250,250,1));; /* Firefox 3.6 to 15 */
+  	background: radial-gradient(circle, rgba(250,250,250,0.21), rgba(250,250,250,0.35), rgba(250,250,250,1)); /* Standard syntax */
+}
+.slider-btn.active{
+	background: white;
+}
+
+.menu{
+	border-top: 1px solid #333;
+	border-bottom: 3px solid #333;
+	text-align: center;
+	display: block;
+	margin-bottom: 32px;
+}
+
+li{
+	display: inline-block;
+	line-height: 50px;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+.container{
+	max-width: 1000px;
+	margin: auto;
+}
+.orderby{
+	float: right;
+}
+
+/*Grids*/
+/*  SECTIONS  */
+.section {
+	clear: both;
+	padding: 0px;
+	margin: 0px;
+}
+
+/*  COLUMN SETUP  */
+.col {
+	display: block;
+	float:left;
+	margin: 1% 0 1% 1.6%;
+}
+.col:first-child { margin-left: 0; }
+
+/*  GROUPING  */
+.group:before,
+.group:after { content:""; display:table; }
+.group:after { clear:both;}
+.group { zoom:1; /* For IE 6/7 */ }
+
+/*  GRID OF THREE  */
+.span_3_of_3 { width: 100%; }
+.span_2_of_3 { width: 66.13%; }
+.span_1_of_3 { width: 32.26%; }
+
+/*  GO FULL WIDTH BELOW 480 PIXELS */
+@media only screen and (max-width: 480px) {
+	.col {  margin: 1% 0 1% 0%; }
+	.span_3_of_3, .span_2_of_3, .span_1_of_3 { width: 100%; }
+}
