@@ -20,12 +20,14 @@ $author = $_POST["author"];
 $content = $_POST["content"];
 $picture = $_POST["picture"];
 $url = $_POST["url"];
+$description = substr(strip_tags($content), 0, 200);
+
 
 $now = date_create();
 $dateLastMod =  date_format($now,"Y-m-d");
 
 
-$sql = "UPDATE articles SET title='$title' , picture='$picture' , url='$url' , author='$author' , content='$content' , dateLastMod='$dateLastMod' WHERE id=$id";
+$sql = "UPDATE articles SET title='$title' , picture='$picture' , url='$url' , author='$author' , content='$content' , description='$description' ,dateLastMod='$dateLastMod' WHERE id=$id";
 
 if (mysqli_query($conn, $sql)) {
     echo "Guardado con exito";
